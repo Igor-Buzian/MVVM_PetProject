@@ -1,0 +1,19 @@
+{
+    "name": "Installer_Zenject",
+    "rootNamespace": "",
+    "references": [
+        "GUID:915cae598d2f0474692e8f755c171223",
+        "GUID:204c489459008a143b6c65b2b7a82274",
+        "GUID:b487018e11f51e741b542e3e1096380c",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
