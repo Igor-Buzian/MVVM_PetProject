@@ -1,13 +1,17 @@
 
+using System;
+using Core.Interfaces.asmdef;
 namespace Mvvm_Pet_Project.Score.Models
 {
-    public class PlayerScoreModel
+    public class PlayerScoreModel : IModifiableValue
     {
-        public int Score { get; private set; }
+        public int Current { get; private set; }
+        public event Action<int> OnValueChanged;
 
-        public void AddScore(int points)
+        public void Modify(int delta)
         {
-            Score += points;
+            Current += delta;
+            OnValueChanged?.Invoke(Current);
         }
     }
 }

@@ -2,7 +2,8 @@
     "name": "ScoreViewAssembly",
     "rootNamespace": "",
     "references": [
-        "GUID:b487018e11f51e741b542e3e1096380c"
+        "GUID:b487018e11f51e741b542e3e1096380c",
+        "GUID:80a7f6af16a532042a2e5b0faf24687f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

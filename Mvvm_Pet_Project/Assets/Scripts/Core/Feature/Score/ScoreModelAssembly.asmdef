@@ -1,3 +1,16 @@
 {
-	"name": "ScoreModelAssembly"
+    "name": "ScoreModelAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:80a7f6af16a532042a2e5b0faf24687f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

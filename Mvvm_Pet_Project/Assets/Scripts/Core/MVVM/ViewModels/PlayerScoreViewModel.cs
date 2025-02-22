@@ -1,29 +1,28 @@
-
-using System;
-using Mvvm_Pet_Project.Score.Models;
+using System; // Р”РѕР±Р°РІР»СЏРµРј СЌС‚РѕС‚ using РґР»СЏ IDisposable
+using Core.Interfaces.asmdef;
 
 namespace Mvvm_Pet_Project.Score.ViewModels
 {
-    public class PlayerScoreViewModel
+    public class PlayerScoreViewModel : IDisposable // РўРµРїРµСЂСЊ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј System
     {
-
-        private readonly PlayerScoreModel _scoreModel;
-
-        // Событие для уведомления об изменении счета
+        private readonly IModifiableValue _valueSource;
         public event Action<int> OnScoreChanged;
 
-        public PlayerScoreViewModel(PlayerScoreModel scoreModel)
+        public PlayerScoreViewModel(IModifiableValue valueSource)
         {
-            _scoreModel = scoreModel;
+            _valueSource = valueSource;
+            _valueSource.OnValueChanged += HandleValueChanged;
         }
 
-        public int CurrentScore => _scoreModel.Score;
+        public int CurrentValue => _valueSource.Current;
+        public void ChangeValue(int delta) => _valueSource.Modify(delta);
 
-        public void AddScore(int points)
+        private void HandleValueChanged(int newValue) => OnScoreChanged?.Invoke(newValue);
+
+        // Р РµР°Р»РёР·Р°С†РёСЏ IDisposable
+        public void Dispose()
         {
-            _scoreModel.AddScore(points);
-            // Вызываем событие при изменении счета
-            OnScoreChanged?.Invoke(CurrentScore);
+            _valueSource.OnValueChanged -= HandleValueChanged;
         }
     }
 }
