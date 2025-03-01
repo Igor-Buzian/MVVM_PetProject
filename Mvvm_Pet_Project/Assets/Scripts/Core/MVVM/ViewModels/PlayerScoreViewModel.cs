@@ -1,9 +1,9 @@
-using System; // Добавляем этот using для IDisposable
+using System; 
 using Core.Interfaces.asmdef;
 
 namespace Mvvm_Pet_Project.Score.ViewModels
 {
-    public class PlayerScoreViewModel : IDisposable // Теперь с использованием System
+    public class PlayerScoreViewModel : IDisposable 
     {
         private readonly IModifiableValue _valueSource;
         public event Action<int> OnScoreChanged;
@@ -19,7 +19,7 @@ namespace Mvvm_Pet_Project.Score.ViewModels
 
         private void HandleValueChanged(int newValue) => OnScoreChanged?.Invoke(newValue);
 
-        // Реализация IDisposable
+
         public void Dispose()
         {
             _valueSource.OnValueChanged -= HandleValueChanged;

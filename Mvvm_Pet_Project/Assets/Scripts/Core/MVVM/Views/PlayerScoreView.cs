@@ -14,7 +14,7 @@ namespace Mvvm_Pet_Project.ScoreViews
         private void Construct(PlayerScoreViewModel viewModel)
         {
             _viewModel = viewModel;
-            _viewModel.OnScoreChanged += UpdateScore; // Теперь событие распознаётся
+            _viewModel.OnScoreChanged += UpdateScore; 
             UpdateScore(_viewModel.CurrentValue);
         }
 
